@@ -31,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
 
-        Product updatedProduct = ProductMapper.toProduct(productRequest);
+        Product updatedProduct = ProductMapper.toModel(productRequest);
         updatedProduct.setId(id);
         productRepo.save(updatedProduct);
         return ProductMapper.toResponse(updatedProduct);
@@ -46,7 +46,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductResponse createProduct(ProductRequest productRequest) {
-        Product product = ProductMapper.toProduct(productRequest);
+        Product product = ProductMapper.toModel(productRequest);
         productRepo.save(product);
         return ProductMapper.toResponse(product);
     }
