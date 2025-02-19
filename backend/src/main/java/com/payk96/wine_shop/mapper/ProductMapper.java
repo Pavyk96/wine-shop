@@ -5,7 +5,7 @@ import com.payk96.wine_shop.dto.ProductResponse;
 import com.payk96.wine_shop.model.Product;
 
 public class ProductMapper {
-    public static Product toProduct(ProductRequest productRequest) {
+    public static Product toModel(ProductRequest productRequest) {
         return Product.builder()
                 .name(productRequest.getName())
                 .price(productRequest.getPrice())
